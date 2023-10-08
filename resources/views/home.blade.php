@@ -14,7 +14,8 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                        <a href="/example1" class="btn btn-outline-success">View Easy Checkout Page</a>
+                        <a href="/example2" class="btn btn-outline-success">View Hosted Checkout Page</a>
                 </div>
             </div>
         </div>

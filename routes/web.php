@@ -1,17 +1,9 @@
 <?php
 
+use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,3 +12,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('easy-checkout');
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('hosted-checkout');
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success'])->name('success');
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail'])->name('fail');
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel'])->name('cancel');
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn'])->name('ipn');
+//SSLCOMMERZ END
