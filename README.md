@@ -127,7 +127,3 @@ protected $except = [
 > You can't. IPN requires a publicly accessible webserver.
 
 
-### Contributors
-> Md. Rakibul Islam
-
-> Prabal Mallick
